@@ -1,0 +1,29 @@
+{
+  "name": "pex-gl",
+  "version": "0.1.0",
+  "description": "Create a WebGL context in Plask or a web browser",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Marcin Ignac",
+    "email": "marcin.ignac@gmail.com",
+    "url": "https://github.com/vorg"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "pex,",
+    "webgl"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pex-gl/pex-gl.git"
+  },
+  "homepage": "https://github.com/pex-gl/pex-gl",
+  "bugs": {
+    "url": "https://github.com/pex-gl/pex-gl/issues"
+  }
+}
