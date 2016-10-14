@@ -1,7 +1,5 @@
 # pex-gl
 
-[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
-
 Create WebGL context in [Plask](http://plask.org) or in a web browser (via [browserify](https://www.npmjs.com/package/browserify).
 
 ## Usage
