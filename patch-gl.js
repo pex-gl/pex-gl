@@ -1,5 +1,3 @@
-var isBrowser = require('is-browser')
-
 function patch (gl) {
   function getEnumName (e) {
     for (var name in gl) {
