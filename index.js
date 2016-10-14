@@ -3,7 +3,7 @@ const plask = require('plask')
 const patchGL = require('./patch-gl')
 const patchRaf = require('./patch-raf')
 
-var rafCallbacks = patchRaf()
+let rafCallbacks = patchRaf()
 
 function createGL (width, height) {
   const canvas = {
