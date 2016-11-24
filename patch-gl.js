@@ -42,6 +42,7 @@ function patch (gl) {
       glTexImage2D.apply(gl, arguments)
     }
     gl.getExtension = function (name) {
+      name = name.toLowerCase()
       if (name === 'oes_texture_float') return {}
       if (name === 'oes_texture_float_linear') return {}
       if (name === 'oes_texture_half_float') {
