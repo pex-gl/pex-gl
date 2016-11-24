@@ -43,6 +43,12 @@ function patch (gl) {
     }
     gl.getExtension = function (name) {
       name = name.toLowerCase()
+      if (name === 'angle_instanced_arrays') {
+        return {
+          vertexAttribDivisorANGLE: function () { gl.vertexAttribDivisor.apply(gl, arguments) },
+          drawElementsInstancedANGLE: function () { gl.drawElementsInstanced.apply(gl, arguments) }
+        }
+      }
       if (name === 'oes_texture_float') return {}
       if (name === 'oes_texture_float_linear') return {}
       if (name === 'oes_texture_half_float') {
