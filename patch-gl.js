@@ -37,10 +37,6 @@ function patch (gl) {
       console.log('drawingBufferWidth', arguments)
       glDrawingBufferWidth.apply(gl, arguments)
     }
-    var glTexImage2D = gl.texImage2D
-    gl.texImage2D = function () {
-      glTexImage2D.apply(gl, arguments)
-    }
     gl.getExtension = function (name) {
       name = name.toLowerCase()
       if (name === 'angle_instanced_arrays') {
