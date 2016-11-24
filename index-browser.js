@@ -4,11 +4,11 @@ function createGL (width, height) {
   canvas.width = width
   canvas.height = height
   if (document.body) {
-    document.body.append(canvas)
+    document.body.appendChild(canvas)
   } else {
     // just in case our script is included above <body>
     document.addEventListener('DOMContentLoaded', () => {
-      document.body.append(canvas)
+      document.body.appendChild(canvas)
     })
   }
   const gl = canvas.getContext('webgl')
