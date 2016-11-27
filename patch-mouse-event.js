@@ -4,6 +4,8 @@ function patchMouseEvent (e) {
     deltaY: e.dy || 0,
     deltaZ: 0,
     deltaMode: 0,
+    button: e.buttonNumber || 0,
+    buttons: e.buttonNumber || 0,
     x: e.x,
     y: e.y,
     offsetX: e.x,
