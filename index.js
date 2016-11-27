@@ -2,27 +2,21 @@
 const plask = require('plask')
 const patchGL = require('./patch-gl')
 const patchRaf = require('./patch-raf')
+const patchWindow = require('./patch-window')
 const patchMouseEvent = require('./patch-mouse-event')
 const patchKeyEvent = require('./patch-key-event.js')
 const EventEmitter = require('events')
 
 let rafCallbacks = patchRaf()
+const window = patchWindow()
 
 function createGL (width, height) {
-  global.getComputedStyle = () => {
-    return {
-      getPropertyValue: (prop) => 0
-    }
-  }
-
   const canvas = {
     events: new EventEmitter(),
-    width: width,
-    height: height,
-    clientWidth: width,
-    clientHeight: height,
-    innerWidth: width,
-    innerHeight: height,
+    width: 0,
+    height: 0,
+    clientWidth: 0,
+    clientHeight: 0,
     addEventListener: (e, cb) => { canvas.events.addListener(e, cb) },
     removeEventListener: (e, cb) => { canvas.events.removeListener(e, cb) },
     appendChild: () => { },
@@ -33,16 +27,8 @@ function createGL (width, height) {
     getComputedStyle: global.getComputedStyle
   }
 
-  // expose commonly accessed root DOM elements for compatibility
-  global.window = canvas
-  global.document = {
-    body: canvas,
-    createElement: (name) => {
-      return {
-        style: { }
-      }
-    }
-  }
+  canvas.width = canvas.clientWidth = width
+  canvas.height = canvas.clientHeight = height
 
   const win = plask.simpleWindow({
     settings: {
@@ -53,15 +39,17 @@ function createGL (width, height) {
     init: function () {
       this.framerate(60)
 
-      this.on('mouseDown', (e) => { canvas.events.emit('mousedown', patchMouseEvent(e)) })
-      this.on('mouseMoved', (e) => { canvas.events.emit('mousemove', patchMouseEvent(e)) })
-      this.on('mouseDragged', (e) => { canvas.events.emit('mousemove', patchMouseEvent(e)) })
-      this.on('mouseUp', (e) => { canvas.events.emit('mouseup', patchMouseEvent(e)) })
-      this.on('mouseUp', (e) => { canvas.events.emit('click', patchMouseEvent(e)) })
-      this.on('scrollWheel', (e) => { canvas.events.emit('wheel', patchMouseEvent(e)) })
-      this.on('keyDown', (e) => { canvas.events.emit('keydown', patchKeyEvent(e)) })
-      this.on('keyDown', (e) => { canvas.events.emit('keypress', patchKeyEvent(e)) })
-      this.on('keyUp', (e) => { canvas.events.emit('keyup', patchKeyEvent(e)) })
+      ;[canvas, window].forEach((elem) => {
+        this.on('mouseDown', (e) => { elem.events.emit('mousedown', patchMouseEvent(e)) })
+        this.on('mouseMoved', (e) => { elem.events.emit('mousemove', patchMouseEvent(e)) })
+        this.on('mouseDragged', (e) => { elem.events.emit('mousemove', patchMouseEvent(e)) })
+        this.on('mouseUp', (e) => { elem.events.emit('mouseup', patchMouseEvent(e)) })
+        this.on('mouseUp', (e) => { elem.events.emit('click', patchMouseEvent(e)) })
+        this.on('scrollWheel', (e) => { elem.events.emit('wheel', patchMouseEvent(e)) })
+        this.on('keyDown', (e) => { elem.events.emit('keydown', patchKeyEvent(e)) })
+        this.on('keyDown', (e) => { elem.events.emit('keypress', patchKeyEvent(e)) })
+        this.on('keyUp', (e) => { elem.events.emit('keyup', patchKeyEvent(e)) })
+      })
     },
     draw: function () {
       const numCallbacks = rafCallbacks.length
