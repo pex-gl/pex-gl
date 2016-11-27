@@ -11,6 +11,9 @@ gl.canvas.addEventListener('mousemove', (e) => {
   g = e.offsetY / gl.canvas.clientHeight 
 })
 
+require('mouse-change')((buttons, x, y) => console.log('mouse-change', buttons, x, y))
+require('mouse-wheel')((dx, dy) => console.log('mouse-wheel', dx, dy))
+
 regl.frame(() => {
   regl.clear({
     color: [r, g, 0, 1],
