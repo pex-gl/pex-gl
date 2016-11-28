@@ -13,7 +13,17 @@ function patchMouseEvent (e) {
     altKey: e.option,
     shiftKey: e.shift,
     ctrlKey: e.ctrl,
-    metaKey: e.cmd
+    metaKey: e.cmd,
+    defaultPrevented: false,
+    preventDefault: function () {
+      this.defaultPrevented = true
+    },
+    stopPropagation: function () {
+      // no effect in plask
+    },
+    stopImmediatePropagation: function () {
+      // no effect in plask
+    }
   }
 }
 
