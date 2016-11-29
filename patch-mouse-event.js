@@ -1,7 +1,7 @@
 function patchMouseEvent (e) {
   return {
-    deltaX: e.dx || 0,
-    deltaY: e.dy || 0,
+    deltaX: -e.dx * 10 || 0,
+    deltaY: -e.dy * 10 || 0,
     deltaZ: 0,
     deltaMode: 0,
     button: e.buttonNumber || 0,
