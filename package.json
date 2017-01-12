@@ -9,7 +9,9 @@
     "email": "marcin.ignac@gmail.com",
     "url": "https://github.com/vorg"
   },
-  "dependencies": {},
+  "dependencies": {
+    "is-plask": "^1.1.1"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "node test.js"
