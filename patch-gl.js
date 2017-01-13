@@ -32,11 +32,6 @@ function patch (gl) {
         // console.log(e)
       }
     }
-    var glDrawingBufferWidth = gl.drawingBufferWidth
-    gl.drawingBufferWidth = function () {
-      console.log('drawingBufferWidth', arguments)
-      glDrawingBufferWidth.apply(gl, arguments)
-    }
     gl.getExtension = function (name) {
       name = name.toLowerCase()
       if (name === 'angle_instanced_arrays') {
