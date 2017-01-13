@@ -16,7 +16,8 @@ function patch (gl) {
         'EXT_texture_filter_anisotropic,OES_vertex_array_object',
         'OES_element_index_uint',
         'WEBGL_depth_texture,WEBGL_draw_buffers,ANGLE_instanced_arrays',
-        'WEBGL_debug_renderer_info'
+        'WEBGL_debug_renderer_info',
+        'EXT_shader_texture_lod'
       ].map(function (s) { return s.toLowerCase() })
     }
     var glPixelStorei = gl.pixelStorei
@@ -60,6 +61,7 @@ function patch (gl) {
           }
         }
       }
+      if (name === 'ext_shader_texture_lod') return {}
     }
     var GL_COMPRESSED_TEXTURE_FORMATS = 0x86A3
     var glGetParameter = gl.getParameter
