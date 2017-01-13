@@ -80,7 +80,7 @@ function patch (gl) {
       if (name === gl.MAX_RENDERBUFFER_SIZE) return 4096
       if (name === gl.SUBPIXEL_BITS) return 8
       if (name === gl.ALIASED_POINT_SIZE_RANGE) return 0
-      if (name === gl.ALIASED_LINE_WIDTH_RANGE) return 0
+      if (name === gl.ALIASED_LINE_WIDTH_RANGE) return [1, 1]
       if (name === gl.MAX_VIEWPORT_DIMS) return [ 16384, 16384]
       if (name === gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS) return 16
       if (name === gl.MAX_TEXTURE_IMAGE_UNITS) return 16
