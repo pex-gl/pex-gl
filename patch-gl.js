@@ -94,7 +94,7 @@ function patch (gl) {
       if (name === gl.VERSION) return 'WebGL 1.0'
       if (name === gl.SHADING_LANGUAGE_VERSION) return 'WebGL 1.0'
       console.log(getEnumName(name) + ' not supported')
-      glGetParameter.apply(gl, arguments)
+      return glGetParameter.apply(gl, arguments)
     }
     gl.getContextAttributes = function () {
       return {
