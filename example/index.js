@@ -1,5 +1,5 @@
 'use strict'
-const gl = require('..')(window.innerWidth * 0.75, window.innerHeight * 0.75)
+const gl = require('..')()
 
 const regl = require('regl')(gl)
 

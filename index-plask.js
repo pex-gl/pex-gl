@@ -6,11 +6,15 @@ const patchWindow = require('./patch-window')
 const patchMouseEvent = require('./patch-mouse-event')
 const patchKeyEvent = require('./patch-key-event.js')
 const EventEmitter = require('events')
+const assert = require('assert')
 
 let rafCallbacks = patchRaf()
 const window = patchWindow()
 
-function createGL (width, height) {
+function createGL (opts) {
+  assert(!opts || (typeof opts === 'object'), 'pex-gl: createGL requires opts argument to be null or an object')
+  const width = (opts ? opts.width : 0) || 1280
+  const height = (opts ? opts.height : 0) || 720
   const canvas = {
     events: new EventEmitter(),
     width: 0,

@@ -10,13 +10,20 @@ To create new WebGL context via Plask window (in Plask) or HTMLCanvas (in a brow
 
 ```javascript
 var createGl = require('pex-gl')
-var gl = createGL(width, height)
+var gl = createGL()
 ```
 
 or 
 
 ```javascript
-var gl = require('pex-gl')(width, height)
+// full window canvas
+var gl = createGl() 
+
+// creates gl context from existing canvas and keeps it's size
+var gl = createGL({ canvas: canvas })
+
+// creates new canvas with given width and height
+var gl = createGl({ width: Number, height: Number })
 ```
 
 ## API
