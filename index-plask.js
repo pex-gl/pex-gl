@@ -38,6 +38,7 @@ function createGL (opts) {
     settings: {
       width: width,
       height: height,
+      multisample: true,
       type: '3d'
     },
     init: function () {
