@@ -21,8 +21,18 @@ function createGL (opts) {
     height: 0,
     clientWidth: 0,
     clientHeight: 0,
-    addEventListener: (e, cb) => { canvas.events.addListener(e, cb) },
-    removeEventListener: (e, cb) => { canvas.events.removeListener(e, cb) },
+    addEventListener: (e, cb) => {
+      function callbackProxy (event) {
+        if (!event._cancelled) {
+          cb(event)
+        }
+      }
+      cb._callbackProxy = callbackProxy
+      window.events.addListener(e, callbackProxy)
+    },
+    removeEventListener: (e, cb) => {
+      window.events.removeListener(e, cb._callbackProxy)
+    },
     appendChild: () => { },
     removeChild: () => { },
     // window specific methods

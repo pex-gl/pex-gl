@@ -19,10 +19,10 @@ function patchMouseEvent (e) {
       this.defaultPrevented = true
     },
     stopPropagation: function () {
-      // no effect in plask
+      this._cancelled = true
     },
     stopImmediatePropagation: function () {
-      // no effect in plask
+      this._cancelled = true
     }
   }
 }

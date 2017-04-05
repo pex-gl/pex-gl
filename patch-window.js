@@ -17,8 +17,18 @@ global.window = {
   pixelRatio: plask.Window.screensInfo()[0].highdpi,
   innerWidth: plask.Window.screensInfo()[0].width,
   innerHeight: plask.Window.screensInfo()[0].height,
-  addEventListener: (e, cb) => { window.events.addListener(e, cb) },
-  removeEventListener: (e, cb) => { window.events.removeListener(e, cb) },
+  addEventListener: (e, cb) => {
+    function callbackProxy (event) {
+      if (!event._cancelled) {
+        cb(event)
+      }
+    }
+    cb._callbackProxy = callbackProxy
+    window.events.addListener(e, callbackProxy)
+  },
+  removeEventListener: (e, cb) => {
+    window.events.removeListener(e, cb._callbackProxy)
+  },
   appendChild: () => { },
   removeChild: () => { },
   // window specific methods
