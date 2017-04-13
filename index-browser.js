@@ -23,7 +23,7 @@ function createGL (opts) {
       })
     }
   }
-  const gl = canvas.getContext('webgl')
+  const gl = canvas.getContext('webgl', opts)
   return gl
 }
 
