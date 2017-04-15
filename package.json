@@ -1,6 +1,6 @@
 {
   "name": "pex-gl",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Create a WebGL context in Plask or in a web browser",
   "main": "index.js",
   "license": "MIT",
