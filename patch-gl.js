@@ -1,3 +1,19 @@
+// Flipping array buffer in place
+function flipImageData (data, width, height) {
+  const numComponents = data.length / (width * height)
+  for (let y = 0; y < height / 2; y++) {
+    for (let x = 0; x < width; x++) {
+      for (let c = 0; c < numComponents; c++) {
+        const i = (y * width + x) * numComponents + c
+        const flippedI = ((height - y - 1) * width + x) * numComponents + c
+        const tmp = data[i]
+        data[i] = data[flippedI]
+        data[flippedI] = tmp
+      }
+    }
+  }
+}
+
 function patch (gl) {
   function getEnumName (e) {
     for (var name in gl) {
@@ -110,8 +126,28 @@ function patch (gl) {
     gl.isContextLost = function () {
       return false
     }
-  }
 
+    var flipY = false
+    var glPixelStorei = gl.pixelStorei
+    gl.pixelStorei = function (name, value) {
+      if (name === gl.UNPACK_FLIP_Y_WEBGL) {
+        flipY = value
+      } else {
+        glPixelStorei.apply(gl, arguments)
+      }
+    }
+
+    var glTexImage2D = gl.texImage2D
+    gl.texImage2D = function (target, lod, internalFormat, width, height, border, format, type, data) {
+      if (flipY) {
+        flipImageData(data, width, height)
+      }
+      glTexImage2D.apply(gl, arguments)
+      if (flipY) {
+        flipImageData(data, width, height)
+      }
+    }
+  }
   gl.getEnumName = getEnumName
   return gl
 }
