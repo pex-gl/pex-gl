@@ -61,7 +61,7 @@ function patch (gl) {
       if (name === 'oes_texture_float_linear') return {}
       if (name === 'oes_texture_half_float') {
         return {
-          HALF_FLOAT_OES: isBrowser ? 0x8D61 : gl.HALF_FLOAT
+          HALF_FLOAT_OES: gl.HALF_FLOAT
         }
       }
       if (name === 'oes_texture_half_float_linear') return {}
