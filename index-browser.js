@@ -10,17 +10,20 @@ function createGL (opts) {
     canvas = document.createElement('canvas')
     canvas.width = opts.width || window.innerWidth
     canvas.height = opts.height || window.innerHeight
-    if (!opts.width && !opts.height) {
-      // fullscreen
-      document.body.style.margin = '0px'
-    }
-    if (document.body) {
+
+    const appendCanvas = () => {
+      if (!opts.width && !opts.height) {
+        // fullscreen
+        document.body.style.margin = '0px'
+      }
       document.body.appendChild(canvas)
+    }
+
+    if (document.body) {
+      appendCanvas()
     } else {
       // just in case our script is included above <body>
-      document.addEventListener('DOMContentLoaded', () => {
-        document.body.appendChild(canvas)
-      })
+      document.addEventListener('DOMContentLoaded', appendCanvas)
     }
   }
   const gl = canvas.getContext('webgl', opts)
