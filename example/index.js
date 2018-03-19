@@ -1,22 +1,21 @@
 'use strict'
 const gl = require('..')()
 
-const regl = require('regl')(gl)
+const ctx = require('pex-context')()
 
-let r = 0
-let g = 0
+const clearColor = [1, 0, 0, 1]
 
-gl.canvas.addEventListener('mousemove', (e) => {
-  r = e.offsetX / gl.canvas.clientWidth
-  g = e.offsetY / gl.canvas.clientHeight 
+ctx.gl.canvas.addEventListener('mousemove', (e) => {
+  clearColor[0] = e.offsetX / gl.canvas.clientWidth
+  clearColor[1] = e.offsetY / gl.canvas.clientHeight
 })
 
-require('mouse-change')((buttons, x, y) => console.log('mouse-change', buttons, x, y))
-require('mouse-wheel')((dx, dy) => console.log('mouse-wheel', dx, dy))
-
-regl.frame(() => {
-  regl.clear({
-    color: [r, g, 0, 1],
-    depth: 1
+const clearCmd = {
+  pass: ctx.pass({
+    clearColor: clearColor
   })
+}
+
+ctx.frame(() => {
+  ctx.submit(clearCmd)
 })
