@@ -14,9 +14,9 @@ global.window = {
   height: 0,
   clientWidth: 0,
   clientHeight: 0,
-  pixelRatio: plask.Window.screensInfo()[0].highdpi,
-  innerWidth: plask.Window.screensInfo()[0].width,
-  innerHeight: plask.Window.screensInfo()[0].height,
+  innerWidth: 1280,
+  innerHeight: 720,
+  devicePixelRatio: plask.Window.screensInfo()[0].highdpi,
   addEventListener: (e, cb) => {
     function callbackProxy (event) {
       if (!event._cancelled) {
@@ -35,6 +35,11 @@ global.window = {
   requestAnimationFrame: global.requestAnimationFrame,
   cancelAnimationFrame: global.cancelAnimationFrame,
   getComputedStyle: global.getComputedStyle
+}
+
+global.screen = {
+  width: plask.Window.screensInfo()[0].width,
+  height: plask.Window.screensInfo()[0].height
 }
 
 global.document = {

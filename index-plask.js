@@ -13,8 +13,15 @@ const window = patchWindow()
 
 function createGL (opts) {
   assert(!opts || (typeof opts === 'object'), 'pex-gl: createGL requires opts argument to be null or an object')
-  const width = (opts ? opts.width : 0) || 1280
-  const height = (opts ? opts.height : 0) || 720
+
+  const pixelRatio = opts.pixelRatio || 1
+  const antialias = (opts.antialias === false) ? false : true
+
+  let width = (opts ? opts.width : 0) || window.innerWidth
+  let height = (opts ? opts.height : 0) || window.innerHeight
+  window.innerWidth = width
+  window.innerHeight = height
+
   const canvas = {
     events: new EventEmitter(),
     width: 0,
@@ -41,15 +48,16 @@ function createGL (opts) {
     getComputedStyle: global.getComputedStyle
   }
 
-  canvas.width = canvas.clientWidth = width
-  canvas.height = canvas.clientHeight = height
+  canvas.width = canvas.clientWidth = width * pixelRatio
+  canvas.height = canvas.clientHeight = height * pixelRatio
 
   const win = plask.simpleWindow({
     settings: {
-      width: width,
-      height: height,
-      multisample: true,
-      type: '3d'
+      width: canvas.width,
+      height: canvas.height,
+      multisample: antialias,
+      type: '3d',
+      highdpi: pixelRatio
     },
     init: function () {
       this.framerate(60)
