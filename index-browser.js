@@ -27,7 +27,7 @@ function createGL (opts) {
     const W = opts.width || window.innerWidth
     const H = opts.height || window.innerHeight
 
-    if (pixelRatio > 1) {
+    if (pixelRatio !== 1) {
       canvas.style.width = W + 'px'
       canvas.style.height = H + 'px'
       canvas.width = W * pixelRatio
