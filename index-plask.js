@@ -63,12 +63,12 @@ function createGL (opts) {
       this.framerate(60)
 
       ;[canvas, window].forEach((elem) => {
-        this.on('mouseDown', (e) => { elem.events.emit('mousedown', patchMouseEvent(e)) })
-        this.on('mouseMoved', (e) => { elem.events.emit('mousemove', patchMouseEvent(e)) })
-        this.on('mouseDragged', (e) => { elem.events.emit('mousemove', patchMouseEvent(e)) })
-        this.on('mouseUp', (e) => { elem.events.emit('mouseup', patchMouseEvent(e)) })
-        this.on('mouseUp', (e) => { elem.events.emit('click', patchMouseEvent(e)) })
-        this.on('scrollWheel', (e) => { elem.events.emit('wheel', patchMouseEvent(e)) })
+        this.on('mouseDown', (e) => { elem.events.emit('mousedown', patchMouseEvent(e, pixelRatio)) })
+        this.on('mouseMoved', (e) => { elem.events.emit('mousemove', patchMouseEvent(e, pixelRatio)) })
+        this.on('mouseDragged', (e) => { elem.events.emit('mousemove', patchMouseEvent(e, pixelRatio)) })
+        this.on('mouseUp', (e) => { elem.events.emit('mouseup', patchMouseEvent(e, pixelRatio)) })
+        this.on('mouseUp', (e) => { elem.events.emit('click', patchMouseEvent(e, pixelRatio)) })
+        this.on('scrollWheel', (e) => { elem.events.emit('wheel', patchMouseEvent(e, pixelRatio)) })
         this.on('keyDown', (e) => { elem.events.emit('keydown', patchKeyEvent(e)) })
         this.on('keyDown', (e) => { elem.events.emit('keypress', patchKeyEvent(e)) })
         this.on('keyUp', (e) => { elem.events.emit('keyup', patchKeyEvent(e)) })

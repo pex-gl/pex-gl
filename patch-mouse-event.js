@@ -1,4 +1,4 @@
-function patchMouseEvent (e) {
+function patchMouseEvent (e, pixelRatio) {
   return {
     deltaX: -e.dx * 10 || 0,
     deltaY: -e.dy * 10 || 0,
@@ -6,10 +6,10 @@ function patchMouseEvent (e) {
     deltaMode: 0,
     button: e.buttonNumber || 0,
     buttons: e.buttonNumber || 0,
-    x: e.x,
-    y: e.y,
-    offsetX: e.x,
-    offsetY: e.y,
+    x: e.x / pixelRatio,
+    y: e.y / pixelRatio,
+    offsetX: e.x / pixelRatio,
+    offsetY: e.y / pixelRatio,
     altKey: e.option,
     shiftKey: e.shift,
     ctrlKey: e.ctrl,
