@@ -6,20 +6,22 @@ function createGL (opts) {
 
   let canvas = opts.canvas
   const pixelRatio = opts.pixelRatio || 1
+  const fullscreen = !opts.width && !opts.height
 
   if (!canvas) {
     canvas = document.createElement('canvas')
 
+    if (fullscreen) {
+      const meta = document.createElement('meta')
+      meta.setAttribute('name', 'viewport')
+      meta.setAttribute('content', 'width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=0.0')
+      document.head.appendChild(meta)
+    }
     const appendCanvas = () => {
-      if (!opts.width && !opts.height) {
-        // fullscreen
+      if (fullscreen) {
         document.body.style.margin = '0px'
         document.body.style.overflow = 'hidden'
         document.body.style.background = '#000'
-        const meta = document.createElement('meta')
-        meta.setAttribute('name', 'viewport')
-        meta.setAttribute('content', 'width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
-        document.head.appendChild(meta)
       }
       document.body.appendChild(canvas)
     }
