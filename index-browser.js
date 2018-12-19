@@ -46,8 +46,19 @@ function createGL (opts) {
       document.addEventListener('DOMContentLoaded', appendCanvas)
     }
   }
-  const gl = canvas.getContext('webgl', opts)
-  return gl
+  const contexts = ['webgl', 'experimental-webgl']
+  for (var i = 0; i < contexts.length; i++) {
+    try {
+      const gl = canvas.getContext(contexts[i], opts)
+      if (!gl) {
+        throw new Error('Canvas.getContext returned null');
+      }
+      console.info('pex-gl', 'Creating', contexts[i], 'succeeded')
+      return gl
+    } catch (e) {
+      console.warn('pex-gl', 'Creating', contexts[i], 'failed', e)
+    }
+  }
 }
 
 module.exports = createGL
