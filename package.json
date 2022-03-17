@@ -24,6 +24,11 @@
     "Damien Seguin (https://github.com/dmnsgn)"
   ],
   "type": "module",
+  "scripts": {
+    "build": "snowdev build",
+    "dev": "snowdev dev",
+    "release": "snowdev release"
+  },
   "exports": "./index.js",
   "main": "index.js",
   "types": "types/index.d.ts",
