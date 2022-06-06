@@ -1,6 +1,6 @@
 {
   "name": "pex-gl",
-  "version": "2.7.0",
+  "version": "3.0.0-alpha.0",
   "description": "Create a RenderingContext (2d, webgl, webgl2, webgpu) for use in PEX.",
   "keywords": [
     "pex",
@@ -24,14 +24,14 @@
     "Damien Seguin (https://github.com/dmnsgn)"
   ],
   "type": "module",
+  "exports": "./index.js",
+  "main": "index.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "build": "snowdev build",
     "dev": "snowdev dev",
     "release": "snowdev release"
   },
-  "exports": "./index.js",
-  "main": "index.js",
-  "types": "types/index.d.ts",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.0.0"
