@@ -32,11 +32,16 @@ const context = createRenderingContext({ canvas });
 // Creates a webgl context on a new canvas with given width and height
 const context = createRenderingContext({ width, height });
 
-// Disable fallbacks for "webgpu"
-FALLBACKS.webgpu = [];
-
-// Creates a new canvas of type "webgpu" or fallback to webgl2 -> webgl in case it fails
+// Creates a new canvas of type "webgpu"
 const context = createRenderingContext({ type: "webgpu" });
+
+// Creates a new canvas of type "webgl" or fallback to experimental-webgl in case it fails
+const context = createRenderingContext({ type: "webgl" });
+
+// Disable fallbacks for "webgl2"
+FALLBACKS.webgl2 = [];
+// Creates a new canvas of type "webgl2" and return null in case it fails
+const context = createRenderingContext({ type: "webgl2" });
 ```
 
 ## API
