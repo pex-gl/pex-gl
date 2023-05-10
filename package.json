@@ -1,32 +1,39 @@
 {
   "name": "pex-gl",
-  "version": "2.7.0",
-  "description": "Create a WebGL context in Plask or in a web browser",
-  "main": "index.js",
-  "license": "MIT",
-  "author": {
-    "name": "Marcin Ignac",
-    "email": "marcin.ignac@gmail.com",
-    "url": "https://github.com/vorg"
-  },
-  "dependencies": {
-    "is-plask": "^1.1.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "node test.js"
-  },
+  "version": "3.0.0-alpha.0",
+  "description": "Create a RenderingContext (2d, webgl, webgl2, webgpu) for use in PEX.",
   "keywords": [
-    "pex,",
-    "webgl"
+    "pex",
+    "gl",
+    "webgl",
+    "3d",
+    "canvas",
+    "context",
+    "2d",
+    "experimental-webgl",
+    "bitmaprenderer",
+    "webgl2",
+    "webgpu"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/pex-gl/pex-gl.git"
-  },
   "homepage": "https://github.com/pex-gl/pex-gl",
-  "bugs": {
-    "url": "https://github.com/pex-gl/pex-gl/issues"
+  "bugs": "https://github.com/pex-gl/pex-gl/issues",
+  "repository": "pex-gl/pex-gl",
+  "license": "MIT",
+  "author": "Marcin Ignac <marcin.ignac@gmail.com> (http://marcinignac.com)",
+  "contributors": [
+    "Damien Seguin (https://github.com/dmnsgn)"
+  ],
+  "type": "module",
+  "exports": "./index.js",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "snowdev build",
+    "dev": "snowdev dev",
+    "release": "snowdev release"
   },
-  "browser": "index-browser.js"
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  }
 }
