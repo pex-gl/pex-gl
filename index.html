@@ -59,15 +59,19 @@
           type,
           element: canvasContainer,
         });
-        Object.assign(context.canvas.style, {
-          border: "1px solid #000",
-          backgroundColor: `#${Math.floor(Math.random() * 16777215).toString(
-            16
-          )}`,
-        });
-        console.log(context);
+        if (context) {
+          Object.assign(context.canvas.style, {
+            border: "1px solid #000",
+            backgroundColor: `#${Math.floor(Math.random() * 16777215).toString(
+              16
+            )}`,
+          });
+          console.log(context);
 
-        canvasContainer.append(context.constructor.name);
+          canvasContainer.append(context.constructor.name);
+        } else {
+          canvasContainer.append(`Type "${type}" failed.`);
+        }
       };
 
       [...Object.keys(FALLBACKS), "bogus"].forEach((type) => {
