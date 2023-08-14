@@ -11,7 +11,7 @@ const FALLBACKS = {
 };
 
 /**
- * @typedef {Object} Options Options for context creation. All optional.
+ * @typedef {object} Options Options for context creation. All optional.
  * @property {number} [width=window.innerWidth] Request an initial canvas width.
  * @property {number} [height=window.innerHeight] Request an initial canvas height.
  * @property {boolean} [pixelRatio=1] Multiply canvas dimensions with a given ratio.
