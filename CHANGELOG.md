@@ -1,6 +1,10 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [3.0.1](https://github.com/pex-gl/pex-gl/compare/v3.0.0...v3.0.1) (2023-08-14)
+
+
 
 # [3.0.0](https://github.com/pex-gl/pex-gl/compare/v3.0.0-alpha.0...v3.0.0) (2023-05-10)
 

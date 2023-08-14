@@ -67,7 +67,7 @@ const context = createRenderingContext({ type: "webgl2" });
 ## Typedefs
 
 <dl>
-<dt><a href="#Options">Options</a> : <code>Object</code></dt>
+<dt><a href="#Options">Options</a> : <code>object</code></dt>
 <dd><p>Options for context creation. All optional.</p>
 </dd>
 </dl>
@@ -93,7 +93,7 @@ Creates a rendering context.
 
 <a name="Options"></a>
 
-## Options : <code>Object</code>
+## Options : <code>object</code>
 
 Options for context creation. All optional.
 

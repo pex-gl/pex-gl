@@ -48,7 +48,7 @@ function createRenderingContext(opts = {}) {
       meta.setAttribute("name", "viewport");
       meta.setAttribute(
         "content",
-        "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=0.0"
+        "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=0.0",
       );
       document.head.appendChild(meta);
     }
