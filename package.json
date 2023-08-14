@@ -23,6 +23,7 @@
   "contributors": [
     "Damien Seguin (https://github.com/dmnsgn)"
   ],
+  "sideEffects": false,
   "type": "module",
   "exports": "./index.js",
   "main": "index.js",
@@ -33,7 +34,7 @@
     "release": "snowdev release"
   },
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=8.6.0"
   }
 }
