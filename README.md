@@ -48,52 +48,51 @@ const context = createRenderingContext({ type: "webgl2" });
 
 <!-- api-start -->
 
-## Constants
+## Modules
 
 <dl>
-<dt><a href="#FALLBACKS">FALLBACKS</a></dt>
-<dd><p>Context fallbacks map</p>
-</dd>
-</dl>
-
-## Functions
-
-<dl>
-<dt><a href="#createRenderingContext">createRenderingContext([opts])</a> ⇒ <code>RenderingContext</code></dt>
-<dd><p>Creates a rendering context.</p>
-</dd>
+<dt><a href="#module_pex-gl">pex-gl</a></dt>
+<dd></dd>
 </dl>
 
 ## Typedefs
 
 <dl>
-<dt><a href="#Options">Options</a> : <code>object</code></dt>
+<dt><a href="#PexGLOptions">PexGLOptions</a> : <code>object</code></dt>
 <dd><p>Options for context creation. All optional.</p>
 </dd>
 </dl>
 
-<a name="FALLBACKS"></a>
+<a name="module_pex-gl"></a>
 
-## FALLBACKS
+## pex-gl
+
+- [pex-gl](#module_pex-gl)
+  - [.FALLBACKS](#module_pex-gl.FALLBACKS)
+  - [.default([opts])](#module_pex-gl.default) ⇒ <code>RenderingContext</code>
+
+<a name="module_pex-gl.FALLBACKS"></a>
+
+### pex-gl.FALLBACKS
 
 Context fallbacks map
 
-**Kind**: global constant
-<a name="createRenderingContext"></a>
+**Kind**: static constant of [<code>pex-gl</code>](#module_pex-gl)
+<a name="module_pex-gl.default"></a>
 
-## createRenderingContext([opts]) ⇒ <code>RenderingContext</code>
+### pex-gl.default([opts]) ⇒ <code>RenderingContext</code>
 
 Creates a rendering context.
 
-**Kind**: global function
+**Kind**: static method of [<code>pex-gl</code>](#module_pex-gl)
 
-| Param  | Type                             | Default         |
-| ------ | -------------------------------- | --------------- |
-| [opts] | [<code>Options</code>](#Options) | <code>{}</code> |
+| Param  | Type                                       | Default         |
+| ------ | ------------------------------------------ | --------------- |
+| [opts] | [<code>PexGLOptions</code>](#PexGLOptions) | <code>{}</code> |
 
-<a name="Options"></a>
+<a name="PexGLOptions"></a>
 
-## Options : <code>object</code>
+## PexGLOptions : <code>object</code>
 
 Options for context creation. All optional.
 

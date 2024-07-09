@@ -1,6 +1,6 @@
 {
   "name": "pex-gl",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Create a RenderingContext (2d, webgl, webgl2, webgpu) for use in PEX.",
   "keywords": [
     "pex",
@@ -17,7 +17,10 @@
   ],
   "homepage": "https://github.com/pex-gl/pex-gl",
   "bugs": "https://github.com/pex-gl/pex-gl/issues",
-  "repository": "pex-gl/pex-gl",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pex-gl/pex-gl.git"
+  },
   "license": "MIT",
   "author": "Marcin Ignac <marcin.ignac@gmail.com> (http://marcinignac.com)",
   "contributors": [
