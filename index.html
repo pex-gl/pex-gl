@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -26,6 +26,7 @@
 
       .Contexts {
         display: flex;
+        flex-wrap: wrap;
         gap: 10px;
         margin-top: 20px;
         font-size: 10px;
@@ -63,7 +64,7 @@
           Object.assign(context.canvas.style, {
             border: "1px solid #000",
             backgroundColor: `#${Math.floor(Math.random() * 16777215).toString(
-              16
+              16,
             )}`,
           });
           console.log(context);
